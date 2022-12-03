@@ -70,5 +70,5 @@ static const struct arg args[] = {
     { battery_state,    "%s",               "BAT0"  },
     { cpu_perc,         " cpu:%s%%",        NULL    },
     { ram_perc,         " ram:%s%%",        NULL    },
-    { run_command,      " vol:%s%%",        "pamixer --get-volume" },
+    { run_command,      " vol:%s",        "echo $([[ \"$(pamixer --get-mute)\" == \"false\" ]] && echo \"$(pamixer --get-volume)%\" || echo \"mute\")" },
 };
